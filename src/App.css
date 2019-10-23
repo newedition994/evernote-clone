@@ -1,22 +1,40 @@
-.App {
-  text-align: center;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
+#evernote-container {
+  height: 100%;
+  box-sizing: border-box;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-container {
+  height: 100%;
+  box-sizing: border-box;
 }
-
-.App-link {
-  color: #09d3ac;
+.quill {
+  height: 100%;
+  box-sizing: border-box;
+  width: calc(100% - 300px);
+  float: left;
+}
+.ql-container {
+  box-sizing: border-box;
+  height: calc(100% - 42px);
+  overflow-y: scroll;
+}
+.ql-editor {
+  cursor: text;
+}
+.MuiListItem-root.Mui-selected {
+  background-color: #d4d8e8 !important;
+}
+.no-note-selected {
+  font-size: 48px;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 165px);
 }
