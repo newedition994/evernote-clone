@@ -13,25 +13,6 @@ class SidebarComponent extends React.Component {
       title: null
     };
   }
-
-  newNoteBtnClick = () => {
-    this.setState({ title: null, addingNote: !this.state.addingNote });
-  };
-
-  updateTitle = txt => {
-    this.setState({
-      title: txt
-    });
-  };
-
-  newNote = () => {
-    this.props.newNote(this.state.title);
-    this.setState({ title: null, addingNote: false });
-  };
-
-  selectNote = (n, i) => this.props.SelectNote(n, i);
-  deleteNote = note => this.props.deleteNote(note);
-
   render() {
     const { notes, classes, selectedNoteIndex } = this.props;
 
@@ -48,7 +29,7 @@ class SidebarComponent extends React.Component {
                 className={classes.newNoteInput}
                 placeholder="Enter note title"
                 onKeyUp={e => this.updateTitle(e.target.value)}
-              />
+              ></input>
               <Button
                 className={classes.newNoteSubmitBtn}
                 onClick={this.newNote}
@@ -63,12 +44,12 @@ class SidebarComponent extends React.Component {
                 <div key={_index}>
                   <SidebarItemComponent
                     _note={_note}
-                    index={_index}
+                    _index={_index}
                     selectedNoteIndex={selectedNoteIndex}
                     selectNote={this.selectNote}
                     deleteNote={this.deleteNote}
-                  />
-                  <Divider />
+                  ></SidebarItemComponent>
+                  <Divider></Divider>
                 </div>
               );
             })}
@@ -79,6 +60,19 @@ class SidebarComponent extends React.Component {
       return <div></div>;
     }
   }
+
+  newNoteBtnClick = () => {
+    this.setState({ title: null, addingNote: !this.state.addingNote });
+  };
+  updateTitle = txt => {
+    this.setState({ title: txt });
+  };
+  newNote = () => {
+    this.props.newNote(this.state.title);
+    this.setState({ title: null, addingNote: false });
+  };
+  selectNote = (n, i) => this.props.selectNote(n, i);
+  deleteNote = note => this.props.deleteNote(note);
 }
 
 export default withStyles(styles)(SidebarComponent);
