@@ -2,6 +2,9 @@ import React from "react";
 
 import "./App.css";
 
+import SidebarComponent from "./sidebar/sidebar";
+import EditorComponent from "./editor/editor";
+
 const firebase = require("firebase");
 
 class App extends React.Component {
@@ -31,8 +34,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello Evernote User</h1>
+      <div className="app-container">
+        <SidebarComponent
+          selectedNoteIndex={this.state.selectedNoteIndex}
+          notes={this.state.notes}
+        />
+        <EditorComponent />
       </div>
     );
   }
