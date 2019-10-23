@@ -4,7 +4,7 @@ import styles from "./styles";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { removeHTMLTags } from "../helpers";
+import { removeHTMLTags } from "../helper";
 
 class SidebarItemComponent extends React.Component {
   render() {
